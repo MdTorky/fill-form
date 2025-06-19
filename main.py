@@ -3,6 +3,19 @@ from pydantic import BaseModel
 import random
 import requests
 from bs4 import BeautifulSoup
+from fastapi.middleware.cors import CORSMiddleware
+
+app = FastAPI()
+
+# 👇 Add this to allow frontend access
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # You can restrict it later to ["http://localhost:5173"]
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 
 app = FastAPI()
 
